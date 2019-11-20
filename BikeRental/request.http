@@ -1,0 +1,79 @@
+
+###
+
+//add customer
+POST https://localhost:5001/api/Customers
+Content-Type: application/json
+
+{
+    "gender": 1,
+    "firstName": "Maxime",
+    "lastName": "Musterfrau",
+    "birthday": "2001-11-23T18:25:43.511Z",
+    "Street": "TestStreet",
+    "HouseNumber": "12",
+    "ZipCode": "345",
+    "Town": "Vienna"
+}
+
+###
+
+//getCustomers
+GET https://localhost:5001/api/Customers
+
+###
+GET https://localhost:5001/api/Customers/4
+
+
+
+//filterCustomers
+###
+GET https://localhost:5001/api/Customers/?nameFilter=max
+###
+//add bikes
+POST https://localhost:5001/api/Bikes
+Content-Type: application/json
+
+{
+    "brand": "KTM FastTester",
+    "purchaseDate": "2012-04-15T13:16:47.511Z",
+    "rentalPriceFirstHour": 2,
+    "rentalPricePerAdditionalHour": 7,
+    "bikeCategory": 3
+}
+
+
+
+###
+//get bikes
+GET https://localhost:5001/api/Bikes
+###
+
+GET https://localhost:5001/api/Bikes/1
+
+
+###
+//addRental
+POST https://localhost:5001/api/Rentals
+Content-Type: application/json
+
+{
+    "customerID": 1,
+    "bikeID": 1,
+    "rentalBegin": "2019-11-20T06:13:00.511Z"
+}
+
+
+
+# sort=priceFirstHour
+# sort=priceAdditionalHour
+# sort=purchaseDate
+
+###
+POST https://localhost:5001/api/Rentals/1/end
+
+###
+GET https://localhost:5001/api/Rentals/rentals
+
+###
+DELETE https://localhost:5001/api/Rentals/2

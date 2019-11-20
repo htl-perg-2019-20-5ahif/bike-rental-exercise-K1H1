@@ -1,10 +1,15 @@
 ﻿using BikeRentalAPI.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace EntityFrameworkDemo
+namespace BikeRentalAPI
 {
 	public class BikeRentalContext: DbContext
 	{
+
+		public BikeRentalContext(DbContextOptions<BikeRentalContext> options)
+		: base(options)
+		{ }
+
 
 		public DbSet<Customer> Customers { get; set; }
 
@@ -12,10 +17,12 @@ namespace EntityFrameworkDemo
 
 		public DbSet<Rental> Rentals { get; set; }
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		/*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			//lokal SQLServer with WindowsAuthentification
+			//local SQLServer with WindowsAuthentification
 			optionsBuilder.UseSqlServer("Server=KATRIN-BOOK;Database=BikeRental;Integrated Security=SSPI;");
-		}
+		}*/
+
+		
 	}
 }
